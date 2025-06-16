@@ -1,0 +1,37 @@
+############################# Filebeat Configuration #############################
+
+filebeat.inputs:
+- type: log
+  enabled: false
+
+# Enable system module only
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# Setup output to Elasticsearch
+output.elasticsearch:
+  hosts: "elk_url:9200"
+  username: "elastic"
+  password: "elastic"
+
+# Setup Kibana (для загрузки дашбордов)
+setup.kibana:
+  host: "kibana_url:5601"
+
+# Setup dashboards (можно включить при первой настройке)
+setup.dashboards.enabled: true
+
+# Logging
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat.log
+  keepfiles: 7
+  permissions: 0644
+
+# Include metadata about the host
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~

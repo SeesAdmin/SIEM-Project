@@ -1,0 +1,44 @@
+cluster.name: my-cluster
+node.name: node-1
+
+# Network Configuration
+network.host: 0.0.0.0
+http.port: 9200
+
+# Single node (if isn't cluster)
+discovery.type: single-node
+
+# Path to data and log files 
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+# Java heap size (can be boosted at /etc/elasticsearch/jvm.options)
+bootstrap.memory_lock: true
+
+# Security settings for users
+# Основные настройки
+cluster.name: my-cluster
+node.name: node-1
+
+# Сетевые настройки
+network.host: 0.0.0.0
+http.port: 9200
+
+# Режим одного узла (если это не кластер)
+discovery.type: single-node
+
+# Пути хранения данных и логов
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+# Java heap size (можно увеличить в /etc/elasticsearch/jvm.options)
+bootstrap.memory_lock: true
+
+# Настройки безопасности (если нужны пользователи)
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: false
+xpack.security.http.ssl.enabled: false
+
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: false
+xpack.security.http.ssl.enabled: false
